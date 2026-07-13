@@ -1,6 +1,6 @@
 import { Image } from "expo-image";
-import { Link } from "expo-router";
-import { StyleSheet } from "react-native";
+import { Link, useRouter } from "expo-router";
+import { StyleSheet, TouchableOpacity } from "react-native";
 
 import ParallaxScrollView from "@/components/parallax-scroll-view";
 import { ResponsiveMasterDetail } from "@/components/responsive-master-detail";
@@ -40,6 +40,7 @@ const dashboardItems = [
 
 export default function HomeScreen() {
   const { breakpoint } = useResponsive();
+  const router = useRouter();
 
   return (
     <ParallaxScrollView
@@ -83,6 +84,12 @@ export default function HomeScreen() {
           </ThemedText>
         </Link>
       </ThemedView>
+      <ThemedView style={styles.stepContainer}>
+        <ThemedText type="subtitle">Demo Screen</ThemedText>
+        <TouchableOpacity onPress={() => router.push("/demo")}>
+          <ThemedText type="link">Go to Demo Screen</ThemedText>
+        </TouchableOpacity>
+      </ThemedView>
     </ParallaxScrollView>
   );
 }
@@ -98,6 +105,10 @@ const styles = StyleSheet.create({
   linkText: {
     paddingVertical: 6,
     alignSelf: "flex-start",
+  },
+  stepContainer: {
+    gap: 8,
+    marginTop: 12,
   },
   reactLogo: {
     height: 178,

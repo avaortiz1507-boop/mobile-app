@@ -62,7 +62,7 @@ export function ResponsiveMasterDetail({
       >
         <ThemedView
           style={styles.masterPane}
-          accessibilityRole="navigation"
+          accessibilityRole="list"
           accessible
         >
           {items.map((item) => {
