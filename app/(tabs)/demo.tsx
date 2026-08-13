@@ -1,7 +1,13 @@
 import { ThemedText } from "@/components/themed-text";
 import { ThemedView } from "@/components/themed-view";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { AppState, AppStateStatus, Button, TextInput } from "react-native";
+import {
+  AppState,
+  AppStateStatus,
+  Button,
+  TextInput,
+  TextStyle,
+} from "react-native";
 
 // mock api
 function mockFetchApi(): Promise<{
@@ -119,7 +125,7 @@ export default function DemoScreen() {
         gap: 12,
       }}
     >
-      <ThemedText style={{ fontSize: 24, fontWeight: "bold" }}>
+      <ThemedText style={{ fontSize: 24, fontWeight: "bold" } as TextStyle}>
         Demo Page
       </ThemedText>
       <ThemedText>This is a simple demo page.</ThemedText>
