@@ -90,6 +90,12 @@ export default function HomeScreen() {
           <ThemedText type="link">Go to Demo Screen</ThemedText>
         </TouchableOpacity>
       </ThemedView>
+      <ThemedView style={styles.stepContainer}>
+        <ThemedText type="subtitle">Database</ThemedText>
+        <TouchableOpacity onPress={() => router.push("/CrudTest")}>
+          <ThemedText type="link">Open CRUD Test</ThemedText>
+        </TouchableOpacity>
+      </ThemedView>
     </ParallaxScrollView>
   );
 }

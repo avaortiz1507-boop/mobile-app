@@ -22,7 +22,9 @@ export default function RootLayout() {
   const { height, width, scale, fontScale } = useWindowDimensions();
 
   useEffect(() => {
-    createTables();
+    void createTables().catch((error) => {
+      console.error("Failed to initialize database:", error);
+    });
   }, []);
 
   console.log("Window Dimensions:", {
@@ -40,6 +42,7 @@ export default function RootLayout() {
         >
           <Stack>
             <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen name="CrudTest" options={{ title: "CRUD Test" }} />
             <Stack.Screen
               name="modal"
               options={{ presentation: "modal", title: "Modal" }}
