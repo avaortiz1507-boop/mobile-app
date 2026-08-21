@@ -5,10 +5,12 @@ import {
 } from "@react-navigation/native";
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
+import { useEffect } from "react";
 import "react-native-reanimated";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 import { useColorScheme } from "@/hooks/use-color-scheme";
+import { createTables } from "@/src/database/schema";
 import { useWindowDimensions } from "react-native";
 
 export const unstable_settings = {
@@ -18,6 +20,10 @@ export const unstable_settings = {
 export default function RootLayout() {
   const colorScheme = useColorScheme();
   const { height, width, scale, fontScale } = useWindowDimensions();
+
+  useEffect(() => {
+    createTables();
+  }, []);
 
   console.log("Window Dimensions:", {
     height: height,
